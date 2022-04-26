@@ -6,6 +6,7 @@
   },
   "extends": [
     "plugin:react/recommended",
+    "plugin:node/recommended",
     "airbnb",
     "prettier"
   ],
@@ -21,6 +22,16 @@
     "prettier"
   ],
   "rules": {
-    "prettier/prettier": "error"
+    "prettier/prettier": "error",
+    "no-console": "warn",
+    "no-unused-vars": "warn",
+    "react/prop-types": "off",
+    "react/react-in-jsx-scope": "off",
+    "react/jsx-props-no-spreading": "off",
+    "node/no-unsupported-features/es-syntax": "off",
+    "no-param-reassign": "off",
+    "no-nested-ternary": "off",
+    "no-plusplus": "off",
+    "import/extensions": "off"
   }
 }
