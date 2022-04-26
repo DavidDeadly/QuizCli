@@ -1,4 +1,6 @@
 /* eslint-disable no-alert, no-console, no-use-before-define, node/no-unsupported-features/node-builtins */
+import { Player } from './classes/index.js';
+
 const round = (player, name) => {
   console.log(printCurQuestion(player));
 
@@ -12,7 +14,7 @@ const round = (player, name) => {
   return player.nextLevel();
 };
 
-const printCurQuestion = player => {
+export const printCurQuestion = player => {
   const { question, allAnswers, difficulty } = player.getRandomQuestion();
 
   console.log(`%cLevel ${player.level} %cAcc. Prize: ${player.totalPrize}`, 'color: violet', 'color: gold');
@@ -22,6 +24,16 @@ const printCurQuestion = player => {
   });
 
   return difficulty;
+};
+
+export const welcome = () => {
+  const name = prompt("What's your name?");
+  console.clear();
+
+  console.log(`Welcome!! ${name}`);
+
+  const player = new Player(name);
+  return [player, name];
 };
 
 export default round;
