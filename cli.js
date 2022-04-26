@@ -10,7 +10,14 @@ function main() {
   }
 
   if (player.level > 5) {
-    console.log(`%cYOU WON!!, Well done!!${name}. %cYour score is: ${player.totalPrize}`, 'color: pink', 'color: gold');
+    console.log(
+      `
+  %cYOU WON!!, Well done!! %c${name}. 
+  %cYour score is: ${player.totalPrize}`,
+      'color: pink',
+      'color: green',
+      'color: gold'
+    );
   }
 }
 
@@ -18,6 +25,6 @@ if (typeof Deno !== 'undefined') main();
 else
   console.error(`
     This program must be executed in the Deno runtime
-    Download here 👉👉👉👉 https://deno.land
+    Download it here ===> https://deno.land
     It's great, I swear!!
 `);
