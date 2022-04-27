@@ -27,6 +27,7 @@ export default class Player extends Round {
   }
 
   constructor(name) {
+    if (!name) throw new Error('Your need a Name!!');
     super(1);
     this.name = name;
     this.totalPrize = 0;

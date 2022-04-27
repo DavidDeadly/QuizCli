@@ -1,21 +1,20 @@
 /* eslint-disable no-undef, no-await-in-loop, no-unused-expressions, no-constant-condition */
 
 import game from './utils/game.js';
+import { endGameOptions } from './utils/functions/index.js';
 
 async function main() {
   const godMode = Deno.args.includes('--god');
 
   while (true) {
-    const history = await game(godMode);
-    const playAgain = confirm(`  Do you wanna play again?`);
-
-    if (!playAgain) {
-      const seeHistory = confirm(`  Do you wanna see the history??`);
-      seeHistory && console.table(history);
-      break;
+    let history;
+    try {
+      history = await game(godMode);
+    } catch (error) {
+      console.error('Somethin went wrong: ', error);
     }
 
-    console.clear();
+    if (!endGameOptions(history)) break;
   }
 }
 
@@ -25,7 +24,4 @@ if (typeof Deno === 'undefined') {
     Download it here ===> https://deno.land
     It's great, I swear!!
 `);
-} else {
-  console.clear;
-  main();
-}
+} else main();

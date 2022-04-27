@@ -3,7 +3,9 @@
 import { Player } from '../classes/index.js';
 
 const welcome = () => {
+  console.clear();
   const name = prompt(`  What's your name?`);
+  const player = new Player(name);
   console.clear();
 
   console.log(
@@ -12,7 +14,6 @@ const welcome = () => {
     'color: green'
   );
 
-  const player = new Player(name);
   return [player, name];
 };
 
