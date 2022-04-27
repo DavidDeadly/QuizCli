@@ -17,12 +17,12 @@ const endGame = (player, name) => {
     case 'loser':
       console.log(
         `
-  %cClose, well done %c${name}!
-  %cYour score is: ${player.totalPrize}
+  %cClose, nice try %c${name}!
+  %cSad see you go with nothing
     `,
         'color: green',
         'color: violet',
-        'color: gold'
+        'color: darkgray'
       );
       break;
     case 'winner':

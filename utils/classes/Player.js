@@ -57,6 +57,8 @@ export default class Player extends Round {
   }
 
   response(indAns) {
-    return this.question.checkAnswer(indAns);
+    const isCorrect = this.question.checkAnswer(indAns);
+    this.totalPrize = 0;
+    return isCorrect;
   }
 }

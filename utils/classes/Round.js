@@ -5,6 +5,8 @@ export default class Round extends Category {
 
   #prize;
 
+  #acc = 1500;
+
   constructor(level) {
     super(level);
     this.#prize = this.#getPrize();
@@ -24,7 +26,9 @@ export default class Round extends Category {
   }
 
   #getPrize() {
-    return this.level * 1000;
+    const newPrize = this.level * this.#acc;
+    this.#acc *= 2;
+    return newPrize;
   }
 
   getRandomQuestion() {
