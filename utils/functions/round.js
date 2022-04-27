@@ -1,8 +1,8 @@
 /* eslint-disable no-alert, no-console, no-use-before-define, no-undef */
 import { printCurQuestion, answerChecker } from './index.js';
 
-const round = (player, maxLevel) => {
-  printCurQuestion(player);
+const round = (player, maxLevel, godMode) => {
+  printCurQuestion(player, godMode);
 
   console.log(
     `

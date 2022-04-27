@@ -3,8 +3,10 @@
 import game from './utils/game.js';
 
 async function main() {
+  const godMode = Deno.args.includes('--god');
+
   while (true) {
-    const history = await game();
+    const history = await game(godMode);
     const playAgain = confirm(`  Do you wanna play again?`);
 
     if (!playAgain) {

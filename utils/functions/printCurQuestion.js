@@ -1,11 +1,11 @@
 /* eslint-disable no-console */
 
-const printCurQuestion = player => {
-  const { question, allAnswers } = player.getRandomQuestion();
+const printCurQuestion = (player, godMode) => {
+  const { question, allAnswers, corrAnsIndex } = player.getRandomQuestion();
 
   console.log(
     `
-  %cLevel ${player.level} %cAcc. Prize: ${player.totalPrize}
+  %cLevel ${player.level} %cAcc. Prize: ${player.totalPrize} ${godMode ? `||  Answer:  ${corrAnsIndex}` : ''}
   %c${question} %creward: ${player.prize}
   `,
     'color: violet',

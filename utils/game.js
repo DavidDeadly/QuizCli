@@ -3,11 +3,11 @@ import { welcome, round, endGame } from './functions/index.js';
 
 const MAX_LEVEL = 5;
 
-const game = () => {
+const game = godMode => {
   const [player, name] = welcome();
 
   while (player.level < MAX_LEVEL + 1) {
-    if (!round(player, MAX_LEVEL)) break;
+    if (!round(player, MAX_LEVEL, godMode)) break;
   }
 
   return endGame(player, name);
