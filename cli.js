@@ -1,30 +1,29 @@
-/* eslint-disable no-alert, no-console, no-use-before-define, node/no-unsupported-features/node-builtins, no-undef */
+/* eslint-disable no-undef, no-await-in-loop, no-unused-expressions, no-constant-condition */
 
-import round, { welcome } from './utils/cliFuncs.js';
+import game from './utils/game.js';
 
-function main() {
-  const [player, name] = welcome();
+async function main() {
+  while (true) {
+    const history = await game();
+    const playAgain = confirm(`  Do you wanna play again?`);
 
-  while (player.level <= 5) {
-    if (!round(player, name)) break;
-  }
+    if (!playAgain) {
+      const seeHistory = confirm(`  Do you wanna see the history??`);
+      seeHistory && console.table(history);
+      break;
+    }
 
-  if (player.level > 5) {
-    console.log(
-      `
-  %cYOU WON!!, Well done!! %c${name}. 
-  %cYour score is: ${player.totalPrize}`,
-      'color: pink',
-      'color: green',
-      'color: gold'
-    );
+    console.clear();
   }
 }
 
-if (typeof Deno !== 'undefined') main();
-else
-  console.error(`
+if (typeof Deno === 'undefined') {
+  console.warn(`
     This program must be executed in the Deno runtime
     Download it here ===> https://deno.land
     It's great, I swear!!
 `);
+} else {
+  console.clear;
+  main();
+}

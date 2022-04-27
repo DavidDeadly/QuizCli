@@ -1,37 +1,24 @@
 {
-  "env": {
-    "browser": true,
-    "es2021": true,
-    "node": true
-  },
-  "extends": [
-    "plugin:react/recommended",
-    "plugin:node/recommended",
-    "airbnb",
-    "prettier"
-  ],
-  "parserOptions": {
-    "ecmaFeatures": {
-      "jsx": true
+    "extends": [
+        "airbnb-base",
+        "prettier"
+    ],
+    "parserOptions": {
+        "ecmaVersion": "latest",
+        "sourceType": "module"
     },
-    "ecmaVersion": "latest",
-    "sourceType": "module"
-  },
-  "plugins": [
-    "react",
-    "prettier"
-  ],
-  "rules": {
-    "prettier/prettier": "error",
-    "no-console": "warn",
-    "no-unused-vars": "warn",
-    "react/prop-types": "off",
-    "react/react-in-jsx-scope": "off",
-    "react/jsx-props-no-spreading": "off",
-    "node/no-unsupported-features/es-syntax": "off",
-    "no-param-reassign": "off",
-    "no-nested-ternary": "off",
-    "no-plusplus": "off",
-    "import/extensions": "off"
-  }
+    "plugins": [
+        "prettier"
+    ],
+    "rules": {
+        "prettier/prettier": "error",
+        "no-console": "off",
+        "no-alert": "off",
+        "no-unused-vars": "warn",
+        "no-param-reassign": "off",
+        "no-nested-ternary": "off",
+        "no-plusplus": "off",
+        "import/extensions": "off",
+        "no-restricted-globals": "off"
+    }
 }
